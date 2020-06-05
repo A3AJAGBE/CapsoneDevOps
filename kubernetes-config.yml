@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: DevOpsProjectCapsone
+  name: projectcapsone
 spec:
   type: LoadBalancer
   selector:
-    app: DevOpsProjectCapsone
+    app: projectcapsone
   ports:
   - port: 80
     targetPort: 80
@@ -13,19 +13,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: DevOpsProjectCapsone-deploy
+  name: projectcapsone-deploy
 spec:
   selector:
     matchLabels:
-      app: DevOpsProjectCapsone
+      app: projectcapsone
   replicas: 3
   template:
     metadata:
       labels:
-        app: DevOpsProjectCapsone
+        app: projectcapsone
     spec:
       containers:
-      - name: DevOpsProjectCapsone-pod
+      - name: projectcapsone-pod
         image: a3ajagbe/kubernetes-clusters-demo:devopsprojectpapsone
         imagePullPolicy: Always
         ports:
